@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ siteDes }}">
+
+    <title>
+        {% if pageTitle.length %} {{ pageTitle }} {% else %} {{ siteName }} {% /if %}
+    </title>
+
+    <link rel="stylesheet" type="text/css" href="asset/lib.css"/>
+    <link rel="stylesheet" type="text/css" href="asset/index.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="asset/article.css"/>-->
+</head>
+<body>
+<div id="app">
+    <header>
+        <h1>{{ siteName }}</h1>
+        <p class="sub-title">平心静气</p>
+        <div class="nav clearfix">
+            {% for m in siteMenu %}
+            <a href="{{ m.url }}">{{ m.name }}</a>
+            {% /for %}
+        </div>
+    </header>
+    <h2 class="page-title">
+        技术标签
+    </h2>
+    <div class="notice">
+        这个博客模版不提供按照分类展示文章，所以将分类标签放在这个地方。
+    </div>
+    <div class="tech-list">
+        <div class="tech">
+            <h2>分类标题</h2>
+            {% for p in categoriesTree %}
+            <div class="tech-item">
+                <span>2017-10-10 10:10</span>
+                <a href="{{ p.url }}">{{ p.name }}</a>
+            </div>
+            {% /for %}.
+        </div>
+    </div>
+    <footer>
+        Powered by xudy.
+    </footer>
+    {{ mathJaxSupport }}
+    {{ siteOther }}
+</div>
+</body>
+</html>

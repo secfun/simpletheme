@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ siteDes }}">
+
+    <title>
+        {% if pageTitle.length %} {{ pageTitle }} {% else %} {{ siteName }} {% /if %}
+    </title>
+
+    <link rel="stylesheet" type="text/css" href="asset/css/lib.css"/>
+    <link rel="stylesheet" type="text/css" href="asset/css/index.css"/>
+</head>
+<body>
+<div id="app">
+    <header>
+        <h1>{{ siteName }}</h1>
+        <p class="sub-title">{{ siteDes }}</p>
+        <div class="nav clearfix">
+            {% for m in siteMenu %}
+            <a href="{{ m.url }}">{{ m.name }}</a>
+            {% /for %}
+        </div>
+    </header>
+    <!--<h2 class="page-title">-->
+        <!--关于技术-->
+    <!--</h2>-->
+    <!--<div class="notice">-->
+        <!--公告-->
+    <!--</div>-->
+
+    <div class="tech-list">
+        <div class="tech">
+            {% for p in posts %}
+            {% if p.year.length %} <h2>{{ p.year }}</h2> {% /if %}
+            <div class="tech-item">
+                <span>{{ p.dateMonth }} {{ p.dateDay }}</span>
+                <a href="{{ p.url }}">{{ p.title }}</a>
+            </div>
+            {% /for %}
+        </div>
+    </div>
+
+    <footer>
+        Powered by xudy.
+    </footer>
+    {{ mathJaxSupport }}
+    {{ siteOther }}
+</div>
+</body>
+</html>

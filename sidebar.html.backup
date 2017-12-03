@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ siteDes }}">
+
+    <title>
+        {% if pageTitle.length %} {{ pageTitle }} {% else %} {{ siteName }} {% /if %}
+    </title>
+
+    <link rel="stylesheet" type="text/css" href="asset/lib.css"/>
+    <link rel="stylesheet" type="text/css" href="asset/index.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="asset/article.css"/>-->
+</head>
+<body>
+<div id="app">
+    <header>
+        <h1>{{ siteName }}</h1>
+        <p class="sub-title">平心静气</p>
+        <div class="nav clearfix">
+            {% for m in siteMenu %}
+            <a href="{{ m.url }}">{{ m.name }}</a>
+            {% /for %}
+        </div>
+    </header>
+    <div class="tech-list">
+        {% for p in categoriesTree %}
+        <div class="tech">
+            <h2><a href="{{p.url}}">{{ p.name}}</a></h2>
+            {% if p.children.@count %}
+            {% for p2 in p.children %}
+            <div class="tech-item">
+                <span>{{ p2.count }}</span>
+                <a href="{{ p.url }}">{{ p2.name }}</a>
+            </div>
+            {% /for %}
+            {% /if %}
+        </div>
+        {% /for %}.
+    </div>
+    <footer>
+        Powered by xudy.
+    </footer>
+    {{ mathJaxSupport }}
+    {{ siteOther }}
+</div>
+</body>
+</html>

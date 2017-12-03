@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ siteDes }}">
+
+    <title>
+        {% if pageTitle.length %} {{ pageTitle }} {% else %} {{ siteName }} {% /if %}
+    </title>
+
+    <!--<link rel="stylesheet" type="text/css" href="asset/docs.css"/>-->
+    <!--<link rel="stylesheet" type="text/css" href="asset/foundation.css"/>-->
+    <!--<link rel="stylesheet" type="text/css" href="asset/github.css"/>-->
+
+    <link rel="stylesheet" href="asset/css/foundation.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+    <script src="asset/highlightjs/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <style type="text/css">
+        html { background:#f5f5f5; padding:0 10px; height:100%;}
+
+        body { background:#fff; font-size:14px; color:#333; padding:70px 36px 60px; max-width:980px; min-width:320px;  margin:0 auto; box-sizing:border-box; border-left:1px solid #ddd; border-right:1px solid #ddd;
+            box-shadow:rgba(100,100,100,0.3) 0 2px 10px -2px;
+            font-family:'Segoe UI', Helvetica, Arial, 'microsoft yahei', sans-serif;
+        }
+        footer {
+            color: #aaa;
+            text-align: center;
+            margin: 50px 0 0 0;
+            font-size: 13px;
+            font-family: Arial;
+            clear: both; }
+    </style>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    {{ post.content }}
+    <footer>
+        Powered by xudy.
+    </footer>
+    {{ mathJaxSupport }}
+    {{ siteOther }}
+</body>
+</html>
