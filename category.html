@@ -9,9 +9,8 @@
         {% if pageTitle.length %} {{ pageTitle }} {% else %} {{ siteName }} {% /if %}
     </title>
 
-    <link rel="stylesheet" type="text/css" href="asset/lib.css"/>
-    <link rel="stylesheet" type="text/css" href="asset/index.css"/>
-    <!--<link rel="stylesheet" type="text/css" href="asset/article.css"/>-->
+    <link rel="stylesheet" type="text/css" href="asset/css/lib.css"/>
+    <link rel="stylesheet" type="text/css" href="asset/css/index.css"/>
 </head>
 <body>
 <div id="app">
@@ -25,19 +24,16 @@
         </div>
     </header>
     <div class="tech-list">
-        {% for p in categoriesTree %}
+        {% for c in categoriesTree %}
         <div class="tech">
-            <h2><a href="{{p.url}}">{{ p.name}}</a></h2>
-            {% if p.children.@count %}
-            {% for p2 in p.children %}
+            <h2>{{ c.name }}</h2>
+            {% for p in c.posts %}
             <div class="tech-item">
-                <span>{{ p2.count }}</span>
-                <a href="{{ p.url }}">{{ p2.name }}</a>
+                <a href="{{ p.url }}">{{ p.title }}</a>
             </div>
             {% /for %}
-            {% /if %}
         </div>
-        {% /for %}.
+        {% /for %}
     </div>
     <footer>
         Powered by xudy.
